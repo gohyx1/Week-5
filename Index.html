@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello World</title>
+</head>
+<body>
+<h1>Welcome to my dynamic website</h1>
+<button onclick="buttonClicked(0)">Rock</button>
+<button onclick="buttonClicked(1)">Paper</button>
+<button onclick="buttonClicked(2)">Scissors</button>
+
+<script type="text/javascript">
+	var objects = ["Rock", "Paper", "Scissors"];
+	//this creates a global variable for Rock, Paper and Scissors//
+	var computerScore = 0;
+	var userScore = 0;
+	//this creates a global variable for computer and user score//
+
+	function buttonClicked(num){
+		var randomNumber = Math.floor(Math.random() * objects.length);
+		//this commands the computer to chose a random variable from the arrya of objects, but this comes in a number//
+		var selection = objects[randomNumber];
+		//this  changes the number that the computer selects to name of an object - rock, paper or scissors//
+		var userSelection = objects[num];
+		//this command creates the variable based on the number that the person click from button above//
+		var result = "";
+
+		if (num == 0){
+			if (randomNumber == 0){
+				result = "It's a tie";
+
+			}
+			else if (randomNumber == 1){
+				result = "You lose."
+				computerScore++;
+
+			}
+			else {
+				result = "You win."
+				userScore++;
+			}
+		}
+		else if (num == 1){
+			if (randomNumber == 0){
+				result = "You win.";
+				userScore++;
+
+			}
+			else if (randomNumber == 1){
+				result = "It's a tie";
+
+
+			}
+			else {
+				result = "You lose.";
+				computerScore++
+
+			}
+		}
+		else {
+			if (randomNumber == 0){
+				result = "You lose.";
+				computerScore++
+
+			}
+			else if (randomNumber == 1){
+				result = "You win.";
+				userScore++
+
+			}
+			else {
+				result = "It's a tie"
+
+			}
+		}
+		alert("User select "+userSelection+" and computer selects "+selection+". "+result+". Current score: "+userScore+ " - "+computerScore);
+
+	}
+</script>
+</body>
+</html>
